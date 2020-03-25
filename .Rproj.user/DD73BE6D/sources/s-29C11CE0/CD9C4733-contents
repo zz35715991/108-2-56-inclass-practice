@@ -18,47 +18,69 @@ library(lubridate)
 ```
 ```{r}
 a <- 2
-a = 2 # = 與 <-同義
+a = 2 #
+```
 
+
+```{r}
+num1 <- 5
+vNum1 <- c(2,5)
+vNum2 <- c(2, num1)
+```
+
+```{r}
+vNum3 <- c(vNum2, vNum1)
+vNum4 <- c(vNum4, vNum1) # 向量疊代 （recursive vector concatenate）
+```
+##DIFFERENT TYPES
+```{r}
+num1<-5 # 非整數
+num2<-5L # 整數
+
+num1Vector<-c(5,6,7)
+num2Vector<-c(5L,6L,7L)
 ```
 ```{r}
-3 -> b
+typeof(num1Vector)
+typeof(num2Vector)
+```
+##character
+```{r}
+char1<-c("你好")
+char2<-c('你好')
 ```
 ```{r}
-b
+hesaid<-'下里百不用上課'
+```
+
+```{r}
+library(httr)
+library(dplyr)
+GET("https://api.github.com/repos/zz35715991/108-2-56-inclass-practice/commits") 
+  content() %>%
+  View()
 ```
 ```{r}
-my_108_total_credits <- 15
-_108_total_credits <- 15
-108_total_credits <- 15
-_my_108_total_credits <- 15
-my.108.total_credits <- 15
-.108.total_credits <- 15 # 隱藏變數
-.my.108.total_credits <- 15
-我的108學年總學分數 <- 15
-`我的108學年總學分數` <- 15 # 特殊名稱處理，`不是名稱的一部份
-`.108.total_credits` <- 15
-```
-`我的年紀` <- 20 
-my_age <- `我的年紀`
-```{r}
-`我的年紀` <- 20 
-my_age <- `我的年紀`
+library(googlesheets4)
+`出席狀況表單網址` <-  ("https://docs.google.com/spreadsheets/d/1EAG49qDKPWWi0ebkVr29TLrvVnoBPfkvxYY-J3xLAHY/edit#gid=458686645")
+ss <- as_sheets_id(`出席狀況表單網址`)
+homework_sheet <- sheets_read(ss,sheet=1)
 ```
 ```{r}
-我的年紀
-
-
-```
-
+logi1 <- c(T,TRUE,F,FALSE,FALSE)
 ```
 
 
+```{r}
+sum(logi1)
+```
 
 
 
 
 
+
+```{r}
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
