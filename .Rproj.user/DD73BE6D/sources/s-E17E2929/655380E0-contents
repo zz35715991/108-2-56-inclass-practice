@@ -1,0 +1,106 @@
+---
+title: '410873061'
+author: "zz35715991"
+date: "2020/3/25"
+output: html_document
+---
+```{r}
+vectorexample<-c(2,6,7)
+listexample<-list(2,6,7)
+
+```
+```{r}
+print(vectorexample)
+print(listexample)
+```
+```{r}
+#vectorsave
+c("2020-03-31T13:40:55Z","一芳","2","水果茶")
+#listsave
+library(lubridate)
+list(ymd_hms("2020-03-31T13:40:55Z")#date
+     ,"一芳",#character
+     "2",
+     "水果茶")
+```
+```{r}
+c("108學年第1學期","高級會計學","高等統計學",
+  "108學年第2學期","食在拉丁美洲")
+
+```
+```{r}
+list(
+  c("108-1","高級會計學","高等統計學"),
+  c("108-2","食在拉丁美洲")
+)
+```
+```{r}
+# list含兩個vectors
+`小明108學年課表A` <- list(
+  c("108-1","高級會計學","高等統計學"),
+  c("108-2","食在拉丁美洲")
+)
+print(`小明108學年課表A`)
+```
+```{r}
+# list含兩個lists
+`小明108學年課表B` <- list(
+  list("108-1","高級會計學","高等統計學"),
+  list("108-2","食在拉丁美洲")
+)
+print(`小明108學年課表B`)
+```
+```{r}
+`小明108學年課表N` <- list(
+  list(
+    c("108-1"),
+    c("高級會計學","高等統計學")
+  ),
+  list(c("108-2"),c("食在拉丁美洲"))
+)
+print(`小明108學年課表N`)
+```
+```{r}
+`小明108學年課表D` <- list(
+  list(
+    time=c("108-1"),
+    course=c("高級會計學","高等統計學")
+  ),
+  list(time=c("108-2"),course=c("食在拉丁美洲"))
+)
+print(`小明108學年課表D`)
+```
+
+
+
+
+
+
+
+```
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
