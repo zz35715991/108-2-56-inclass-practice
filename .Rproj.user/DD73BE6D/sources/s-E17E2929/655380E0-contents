@@ -62,14 +62,41 @@ print(`小明108學年課表N`)
 ```
 ```{r}
 `小明108學年課表D` <- list(
-  list(
+  `上學期`=list(
     time=c("108-1"),
     course=c("高級會計學","高等統計學")
   ),
-  list(time=c("108-2"),course=c("食在拉丁美洲"))
+  `下學期`=list(time=c("108-2"),course=c("食在拉丁美洲"))
 )
 print(`小明108學年課表D`)
 ```
+##github commit
+```{r}
+library(lubridate)
+commit<-list(
+  author=list("Martin老師","mtlin@gm.ntpu.edu.tw",
+ ymd_hms("2020-03-25T07:17:40Z") ),
+committor=list("emilyluckey","emily007@gmail.com",
+ymd_hms("2020-03-26T08:18:40Z")),
+message=list("update")
+)
+print(commit)
+```
+```{r}
+library(jsonlite) # 不少同學這行會有Error，還記得如何排除嗎？
+toJSON(commit)
+
+```
+```{r}
+save(commit,listexample,`小明108學年課表D`
+,file="today.RDa")
+```
+```{r}
+load("today.RDa")
+```
+
+
+
 
 
 
