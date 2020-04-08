@@ -88,6 +88,105 @@ names(newTaipeiCityVaccine)
 str(newTaipeiCityVaccine[[1]])
 str(newTaipeiCityVaccine$success)
 ```
+```{r}
+str(newTaipeiCityVaccine[[2]],max.level=1)
+str(newTaipeiCityVaccine$result,max.level=1)
+str(newTaipeiCityVaccine[["result"]],max.level = 1)
+```
+```{r}
+vectorExample
+vectorExample[c(1,3,2)]
+```
+```{r}
+str(listExample,max.level = 1)
+listExample[c("student","學期")]
+```
+```{r}
+fromJSON("https://www.dropbox.com/s/qnm9bnz7vccrvcz/taipeiNightMarkets.json?dl=1", simplifyDataFrame = F) -> taipeiNightMarkets
+```
+```{r}
+str(taipeiNightMarkets[c("寧夏觀光夜市","景美夜市")])
+
+```
+```{r}
+vectorExample
+vectorExample[c(T,T,F)] # 要，要，不要
+```
+```{r}
+#str(listExample)
+
+#str(listExample[c(F,T)])
+str(listExample[c("學期")])
+
+```
+```{r}
+names(taipeiNightMarkets)
+```
+```{r}
+selectedNightMarkets<-rep(F,14)
+print(selectedNightMarkets)
+selectedNightMarkets[c(1,5,10,14)]<-TRUE
+print(selectedNightMarkets)
+
+```
+```{r}
+str(taipeiNightMarkets[c(selectedNightMarkets)],max.level = 1)
+```
+```{r}
+str(listExample,max.level = 3)
+```
+```{r}
+get1<-listExample[["學期"]]
+str(get1,max.level = 1
+    )
+```
+```{r}
+get2<-listExample["學期"]
+str(get2,max.level = 1)
+```
+```{r}
+numVector <- c(2,3,6,-1,4,2,6)
+select1 <- numVector[c(1,4)]; select1
+select2 <- select1[[1]]; select2
+
+# 相當於
+numVector[c(1,4)][[1]]
+```
+```{r}
+select1<-numVector[c(T,T,F,F,T,F,T)];select1
+select2<-select1[c(1,2)];select2
+numVector[c(T,T,F,F,T,F,T)][c(1,2)]
+```
+```{r}
+majors <- c("經濟學系","經濟學系","社會學系","社工系","經濟學系")
+names <- c("小英", "小美", "大雄","阿華", "阿尼")
+gender <- c("F","F","M","F","M")
+```
+創造出只要“經濟學系”學生的邏輯向量，econOnly。
+選出econOnly的names與gender。
+在econOnly的gender下創造出只要“F”的邏輯向量, econFemaleOnly。
+選出names中為“經濟學系”且“F”的姓名。
+```{r}
+econOnly<-majors[c(T,T,F,F,T)]
+names
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
