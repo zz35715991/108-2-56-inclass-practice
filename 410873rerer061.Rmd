@@ -1,7 +1,7 @@
 ---
-title: "hw"
+title: '410873061'
 author: "zz35715991"
-date: "2020/4/1"
+date: "2020/4/15"
 output: html_document
 ---
 
@@ -10,17 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
-
-```{r}
-`今天和明天的氣溫`<-list(list(
-  `今天日期`=("2020-03-31"),
-  `明天日期`=("2020-04-01")
-  list(city="台北市",highesttp=25,lowsttp=18),
-  city="新北市",highesttp=24,lowsttp=15)
-           )
-
-```
-
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 

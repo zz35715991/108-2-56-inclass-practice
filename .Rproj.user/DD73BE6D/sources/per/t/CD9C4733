@@ -1,18 +1,18 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1585119552325.000,
+    "created" : 1584509532599.000,
     "dirty" : false,
-    "encoding" : "",
+    "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
-    "id" : "655380E0",
-    "lastKnownWriteTime" : 1584515092,
-    "last_content_update" : 1585723654253,
-    "path" : null,
-    "project_path" : null,
+    "hash" : "4147226916",
+    "id" : "CD9C4733",
+    "lastKnownWriteTime" : 1585471412,
+    "last_content_update" : 1585471412888,
+    "path" : "~/GitHub/108-2-56-inclass-practice/wertyui.Rmd",
+    "project_path" : "wertyui.Rmd",
     "properties" : {
-        "cursorPosition" : "94,15",
+        "cursorPosition" : "104,23",
         "last_setup_crc32" : "",
         "scrollLine" : "0",
         "tempName" : "Untitled1"
@@ -20,7 +20,7 @@
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 3,
+    "relative_order" : 2,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"
