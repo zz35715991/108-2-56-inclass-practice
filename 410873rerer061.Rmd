@@ -10,6 +10,93 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
+```{r}
+listExample <- 
+  list(
+    student="小明",
+    `學期`=list(
+      `108-1`=list(
+        list(
+          name="個體經濟學",
+          teacher="Alice",
+          grade=85
+        )
+      ),
+      `108-2`=list(
+        list(
+          name="總體經濟學",
+          teacher="Mark",
+          grade=78
+        )
+      )
+    )
+  )
+# 有多少位置可選：
+
+```
+```{r}
+str(listExample)
+```
+```{r}
+get1<-listExample[["學期"]]#拿出
+str(get1)
+```
+```{r}
+get2<-listExample["學期"]#留下
+str(get2)
+```
+```{r}
+get1$`108-1`->getone_layer1
+str(getone_layer1)
+```
+```{r}
+getone_layer1[[1]]->get1_layer2
+get1_layer2$teacher
+
+```
+```{r}
+get1$`108-1`[[1]]$teacher
+```
+```{r}
+get2<-listExample["學期"]
+get2_layer2<-get2[[1]]
+get2_layer3<-get2_layer2$`108-1`
+get2_layer4<-get2_layer3[[1]]
+get2_layer4$teacher
+```
+```{r}
+today <- list(
+  list("台北市",c(highest_temp = 25),c(lowest_temp = 18)),
+  list("新北市",c(highest_temp = 24),c(lowest_temp = 15)))
+tomorrow <- list(
+  list("台北市",c(highest_temp = 25),c(lowest_temp = 18)),
+  list("新北市",c(highest_temp = 24),c(lowest_temp = 15)))
+
+weather <- list(today,tomorrow)
+
+str(weather)
+```
+```{r}
+weathet_layer1<-today[[1]]
+weathet_layer2<-weathet_layer1[[2]]
+```
+```{r}
+weather[[1]][[1]][[2]]
+```
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
