@@ -84,8 +84,122 @@ weathet_layer2<-weathet_layer1[[2]]
 weather[[1]][[1]][[2]]
 ```
 ```{r}
+today <- list(
+  list("台北市",highest_temp=c(highest_temp = 25),lowest_temp=c(lowest_temp = 18)),
+  list("新北市",highest_temp=c(highest_temp = 24),lowest_temp=c(lowest_temp = 15)))
+tomorrow <- list(
+  list("台北市",highest_temp=c(highest_temp = 25),lowest_temp=c(lowest_temp = 18)),
+  list("新北市",highest_temp=c(highest_temp = 24),lowest_temp=c(lowest_temp = 15)))
+
+weather <- list(today,tomorrow)
+
+str(weather)
+```
+```{r}
+today[[1]]$highest_temp
+```
+```{r}
+a <- c("1","b","TRUE")
+a
+a[[2]] <- "c" # 元素存在: 替換
+a[[4]] <- "7" # 元素不存在： 增加
+a[c(5,6)] <- c("J", "K")
+a
+```
+```{r}
+a[[7]]<-"johnson"
+a
+```
+```{r}
+library(lubridate)
+list1 <- 
+  list(
+    list(
+      name="Jack",
+      birthday=ymd("1998-03-21"),
+      status=c(height=177, weight=80)
+    )
+  )
+
+str(list1)
+```
+```{r}
+# 更改日期
+list1[[1]]$birthday <- ymd("1997-03-21")
+
+# 新增資料
+list1[[2]] <- list(
+  name="Mary",
+  birthday=ymd("1998-08-24")
+)
+
+str(list1)
+```
+```{r}
+list1[[1]]$status<-c(height=176, weight=80)
+list1[[1]]$status
+```
+```{r}
+list1[[1]][["age"]] <- 21
+list1[[2]]["age"] <- list(21)
+
+# 改變「一個」時，使用[[ ]]比較不會錯。
+str(list1)
+```
+```{r}
+listExample <- 
+  list(
+    student="小明",
+    `學期`=list(
+      `108-1`=list(
+        list(
+          name="個體經濟學",
+          teacher="Alice",
+          grade=85
+        )
+      ),
+      `108-2`=list(
+        list(
+          name="總體經濟學",
+          teacher="Mark",
+          grade=78
+        )
+      )
+    )
+  )
+# 有多少位置可選：
+length(listExample)
+```
+```{r}
+listExample$學期$`108-1`[[2]]<-list(name="總經")
+listExample$學期$`108-1`[[2]][c("teacher","grade")]<-  list(
+    "Wen",
+    88
+    )
+```
+```{r}
+print(a)
+a[-c(1,3)]
+a[c(-2)]
+
+print(a)
+a[-c(1,3)] -> a # 要回存才算真的刪除
+```
+```{r}
+str(list1)
+```
+```{r}
+list1[[1]][-3]->list1[[1]]
+str(list1)
 
 ```
+
+
+
+
+
+
+
 
 
 
