@@ -216,6 +216,132 @@ addresses <- c(
 ```{r}
 str_extract(addresses,"[0-9]+(?=號)")
 ```
+```{r}
+char2 <- c("蔡英文","習近平","Donald Trump","蔡頭") 
+factor2 <- factor(char2)
+levels(factor2)
+library(stringr)
+sort(
+  str_sub(char2,1,1)
+)
+sort(
+  str_sub(char2,2,2)
+)
+```
+```{r}
+jsonlite::fromJSON("https://od.cdc.gov.tw/eic/Day_Confirmation_Age_County_Gender_19CoV.json") -> covid19
+```
+```{r}
+levels(covid19$性別)
+covid19$性別 <- factor(covid19$性別, c("男","女"))
+```
+```{r}
+jsonlite::fromJSON(
+  "https://www.dropbox.com/s/jckqryeh5zeat5w/regionPopulation.json?dl=1"
+) -> population
+unlist(population) -> population
+```
+```{r}
+population <- sort(population, decreasing=T)
+population
+```
+```{r}
+newLevels <- names(population)
+newLevels
+```
+```{r}
+covid19$縣市 <-
+  factor(
+    covid19$縣市, levels=newLevels
+  )
+
+levels(covid19$縣市)
+```
+```{r}
+jsonlite::fromJSON(
+  "https://www.dropbox.com/s/jckqryeh5zeat5w/regionPopulation.json?dl=1"
+) -> population
+unlist(population) -> population
+```
+```{r}
+levels(covid19$年齡層)
+```
+```{r}
+level_names <- levels(covid19$年齡層)
+startingAges <- stringr::str_extract(
+  level_names,
+  "^[0-9]+" # regex：開頭的一串數字
+)
+```
+
+```{r}
+# 要numerical class排的才一定對
+startingAges <- as.integer(startingAges)
+names(startingAges) <- level_names
+```
+```{r}
+sort(startingAges) -> startingAges
+```
+```{r}
+covid19$年齡層 <- 
+  factor(
+    covid19$年齡層, names(startingAges)
+  )
+levels(covid19$年齡層)
+```
+```{r}
+factor1 <- factor(c("新北市","台北市","台中市","彰化市","基隆市","苗栗縣","苗栗縣"))
+factor1
+```
+```{r}
+levels(factor1) <- c("中部","北部","北部","中部","北部","中部")
+factor1
+```
+```{r}
+covid19$地區 <- covid19$縣市
+levels(covid19$地區)
+currentLevels <- levels(covid19$地區)
+
+# 整併
+north_regex <- "宜蘭縣|基隆市|[台臺]北市|新北市|桃園市|新竹市|新竹縣"
+middle_regex <- "苗栗縣|[台臺]中市|彰化縣|南投縣|雲林縣"
+south_regex <-
+  "嘉義市|嘉義縣|[台臺]南[縣市]|高雄市|屏東縣|澎湖縣"
+east_regex <- "花蓮縣|台東縣"
+
+currentLevels <- str_replace(currentLevels, 
+            north_regex, "北部")
+currentLevels <- str_replace(currentLevels, 
+            middle_regex, "中部")
+currentLevels <- str_replace(currentLevels, 
+            south_regex, "南部")
+newLevels <- str_replace(currentLevels, 
+            east_regex, "東部")
+
+
+levels(covid19$地區) <- newLevels
+covid19$地區
+```
+```{r}
+levels(covid19$年齡層)
+
+# 創造10歲間距的所有可能
+start <- seq(5, 55, by=10) # 由5到55，每個值差10的數值向量
+end <- seq(14, 64, by=10)
+middleLevels <- 
+  rep(
+    paste0(start,"-",end), 
+    each=2) # 每個新間距要2個
+newLevels <- c("4", middleLevels, "65+", "65+")
+
+levels(covid19$年齡層) <- newLevels
+covid19$年齡層
+```
+
+
+
+
+
 
 
 
